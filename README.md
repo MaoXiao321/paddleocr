@@ -37,6 +37,7 @@ paddle2onnx --model_dir ./output/det_db_inference/ \
             --model_filename inference.pdmodel --params_filename inference.pdiparams \
             --save_file ./onnx_model/det.onnx \
             --opset_version 10 --input_shape_dict="{'x':[-1,3,-1,-1]}" --enable_onnx_checker True
+```
 
 ## 训练文字识别
 修改ch_PP-OCRv3_rec.yml中的训练集、验证集和字典位置，根据需要下载预训练模型
