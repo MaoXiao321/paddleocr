@@ -11,7 +11,8 @@ python -m pip install onnxruntime==1.9.0
 ```
 
 ## 数据准备
-原始数据存储在/home/data/1/下面，包含.JPG和.json。创建以下目录：
+对jpg文件进行标注，可以用paddleocr自带标注工具，这里使用lableme的四点标注，生成json文件。
+用Process.py做一些预处理，保证数据集的后缀都是.jpg和.json。将数据集放在/home/data/1/下面。创建以下目录：
 ```
 mkdir /home/data/json
 cp /home/data/1/*.json  /home/data/json
@@ -19,7 +20,7 @@ mkdir /home/data/det_train_data /home/data/res_train_data
 mkdir /home/data/det_train_data/train /home/data/det_train_data/val
 mkdir /home/data/res_train_data/train /home/data/res_train_data/val
 ```
-划分数据集，将json文件制作成paddleocr文本检测和识别的数据集格式：
+划分数据集，将json文件制作成paddleocr文本检测和识别的数据集格式，制作好的数据集在/home/data/下：
 ```
 python /project/train/src_repo/PaddleOCR-release-2.6/JsonToTxt.py --data_path /home/data/1  --txt_path /home/data
 rm -rf /home/data/json
