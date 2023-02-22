@@ -3,7 +3,14 @@
 
 ## 安装依赖（paddlepaddle版本选择根据自身环境选择）
 ```
+# 更新pip
+python -m pip install --upgrade pip
+# 查看当前环境的cuda版本
+nvcc -V
+# 参考cuda版本，选择正确的安装命令：https://www.paddlepaddle.org.cn/install/old?docurl=/documentation/docs/zh/install/pip/linux-pip.html,例如：
 python -m pip install paddlepaddle-gpu==2.3.2.post101 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+
+# 安装其他依赖
 pip install -r requirements.txt
 python setup.py install
 python -m pip install paddle2onnx
