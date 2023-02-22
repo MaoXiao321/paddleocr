@@ -56,10 +56,10 @@ tar -xf ch_PP-OCRv3_rec_train.tar && rm -rf ch_PP-OCRv3_rec_train.tar
 
 python tools/train.py -c configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml \
       -o Global.pretrained_model=pretrain_models/ch_PP-OCRv3_rec_train/best_accuracy \
-      Global.character_dict_path=brass_dict.txt Global.epoch_num=2 Global.save_epoch_step=2 Global.save_model_dir=./output/rec_ppocr_v3 \
+      Global.character_dict_path=dic/brass_dict.txt Global.epoch_num=2 Global.save_epoch_step=2 Global.save_model_dir=./output/rec_ppocr_v3 \
       Train.loader.batch_size_per_card=8 Eval.loader.batch_size_per_card=8 
 python tools/export_model.py -c configs/rec/PP-OCRv3/ch_PP-OCRv3_rec.yml -o Global.pretrained_model=./output/rec_ppocr_v3/latest \
-      Global.save_inference_dir=./output/rec_db_inference/
+      Global.save_inference_dir=./output/rec_db_inference/ Global.character_dict_path=dic/brass_dict.txt
 paddle2onnx --model_dir ./output/rec_db_inference/ \
             --model_filename inference.pdmodel --params_filename inference.pdiparams \
             --save_file ./onnx_model/rec.onnx \
