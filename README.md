@@ -17,11 +17,27 @@ python setup.py install
 python -m pip install paddle2onnx
 python -m pip install onnxruntime==1.9.0
 ```
+
+## 推理模型使用
+```
+python tools/infer/predict_det.py --image_dir doc/imgs/00111002.jpg --det_model_dir inference/ch_ppocr_server_v2.0_det_infer
+python tools/infer/predict_cls.py --image_dir doc/imgs_words/ch/word_4.jpg --cls_model_dir inference/ch_ppocr_mobile_v2.0_cls_infer
+python tools/infer/predict_rec.py --image_dir doc/imgs_words/ch/word_4.jpg --rec_model_dir inference/ch_ppocr_server_v2.0_rec_infer
+# 也可以综合起来
+python tools/infer/predict_system.py  --image_dir doc/imgs/00111002.jpg \   # doc/imgs,可处理图像集
+                                      --det_model_dir inference/ch_ppocr_server_v2.0_det_infer \
+                                      --rec_model_dir inference/ch_ppocr_server_v2.0_rec_infer \
+                                      --cls_model_dir inference/ch_ppocr_mobile_v2.0_cls_infer \
+                                      --use_angle_cls True \
+                                      --use_space_char True
+```                                     
+
 ## 数据准备
 对jpg文件进行标注，可以用paddleocr自带标注工具，也可以用labelme多边形标注（生成json文件）。.jpg和.json放到/home/data/1/下面。运行以下代码准备数据集，更详细介绍见：https://blog.csdn.net/qq_39066502/article/details/130992275
 ```
 python paddle_datasets.py
 ```
+
 ## 训练文本检测
 修改det_mv3_db.yml中训练和验证集位置，根据需要下载预训练模型
 ```
