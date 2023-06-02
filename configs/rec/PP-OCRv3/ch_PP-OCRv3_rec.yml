@@ -76,10 +76,10 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /home/data/res_train_data/
+    data_dir: /home/data/res_data/
     ext_op_transform_idx: 1
     label_file_list:
-    - /home/data/res_train_data/res_train_label.txt
+    - /home/data/res_data/res_train_label.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -108,9 +108,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /home/data/res_train_data/
+    data_dir: /home/data/res_data/
     label_file_list:
-    - /home/data/res_train_data/res_val_label.txt
+    - /home/data/res_data/res_val_label.txt
     transforms:
     - DecodeImage:
         img_mode: BGR

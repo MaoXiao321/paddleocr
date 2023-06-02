@@ -64,9 +64,9 @@ Metric:
 Train:
   dataset:
     name: SimpleDataSet
-    data_dir: /home/data/det_train_data/
+    data_dir: /home/data/det_data/
     label_file_list:
-      - /home/data/det_train_data/det_train_label.txt
+      - /home/data/det_data/det_train_label.txt
     ratio_list: [1.0]
     transforms:
       - DecodeImage: # load image
@@ -107,9 +107,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: /home/data/det_train_data/
+    data_dir: /home/data/det_data/
     label_file_list:
-      - /home/data/det_train_data/det_val_label.txt
+      - /home/data/det_data/det_val_label.txt
     transforms:
       - DecodeImage: # load image
           img_mode: BGR
