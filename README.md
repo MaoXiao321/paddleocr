@@ -20,7 +20,7 @@ python -m pip install onnxruntime==1.9.0
 ```
 ## 推理模型使用
 ```
-python tools/infer/predict_det.py --image_dir doc/imgs/00111002.jpg --det_model_dir inference/ch_ppocr_server_v2.0_det_infer
+python tools/infer/predict_det.py --image_dir doc/imgs/00111002.jpg --det_model_dir inference/ch_ppocr_server_v2.0_det_infer --det_db_box_thresh 0.6
 python tools/infer/predict_cls.py --image_dir doc/imgs_words/ch/word_4.jpg --cls_model_dir inference/ch_ppocr_mobile_v2.0_cls_infer
 python tools/infer/predict_rec.py --image_dir doc/imgs_words/ch/word_4.jpg --rec_model_dir inference/ch_ppocr_server_v2.0_rec_infer
 # 也可以综合起来
