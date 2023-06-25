@@ -7,7 +7,7 @@ import argparse
 import cv2
 import shutil
 
-class paddle_datasets():
+class dataset_paddleocr():
     def __init__(self, data_path):
         super().__init__()
         self.data_path = data_path
@@ -195,6 +195,6 @@ if __name__ == "__main__":
     parser.add_argument('--data_path', default='home/data/1', type=str, help='iamges path')
     args = parser.parse_args()
     
-    dataset = paddle_datasets(args.data_path)
+    dataset = dataset_paddleocr(args.data_path)
     dataset.forward()
     
